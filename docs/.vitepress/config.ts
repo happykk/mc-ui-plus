@@ -5,7 +5,6 @@ export default defineConfig({
   description: "基于Element-plus基础组件封装使用",
   lang: "cn-ZH",
   base: "/mc-ui-plus/",
-  outDir: "../public",
   lastUpdated: true,
   themeConfig: {
     logo: "/favicon.ico",

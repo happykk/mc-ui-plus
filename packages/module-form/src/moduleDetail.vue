@@ -1,5 +1,5 @@
 <template>
-  <div class="t_detail">
+  <div class="mc_detail">
     <el-collapse v-model="defaultActiveKey">
       <el-collapse-item
         v-for="(val, index) in descData"
@@ -14,7 +14,7 @@
       >
         <template #title>
           {{ val.title }}
-          <div class="t_btn" v-if="val.btn">
+          <div class="mc_btn" v-if="val.btn">
             <slot :name="val.btn"></slot>
           </div>
         </template>
@@ -57,7 +57,7 @@ const defaultActiveKey = computed({
 })
 </script>
 <style lang="scss">
-.t_detail {
+.mc_detail {
   .el-collapse {
     border: none;
     .el-collapse-item {
@@ -72,7 +72,7 @@ const defaultActiveKey = computed({
         display: flex;
         align-items: center;
         justify-content: space-between;
-        .t_btn {
+        .btn {
           margin-right: 15px;
         }
         .el-collapse-item__arrow {
@@ -128,7 +128,7 @@ const defaultActiveKey = computed({
         .el-collapse-item__arrow {
           display: none;
         }
-        .t_btn {
+        .mc_btn {
           margin-right: 15px;
         }
       }

@@ -1,5 +1,5 @@
 <template>
-  <div class="t-table" ref="TTableBox" v-loading="tableLoading" :element-loading-text="loadingTxt">
+  <div class="mc_table" ref="TableBox" v-loading="tableLoading" :element-loading-text="loadingTxt">
     <div
       class="header_wrap"
       :style="{
@@ -308,11 +308,11 @@
           </el-table-column>
         </template>
         <!-- 表头合并单元格 -->
-        <t-table-column v-else :key="index + 'm'" :item="item" :align="align" v-bind="$attrs">
+        <mc-table-column v-else :key="index + 'm'" :item="item" :align="align" v-bind="$attrs">
           <template v-for="(index, name) in slots" v-slot:[name]="data">
             <slot :name="name" v-bind="data"></slot>
           </template>
-        </t-table-column>
+        </mc-table-column>
       </template>
       <slot></slot>
       <!-- 操作按钮 -->
@@ -391,7 +391,7 @@
   </div>
 </template>
 
-<script setup lang="ts" name="TTable">
+<script setup lang="ts" name="McTable">
 import {
   computed,
   ref,
@@ -450,8 +450,8 @@ let state = reactive({
 const radioVal = ref<number | any>("")
 // 判断单选选中及取消选中
 const forbidden = ref(true)
-// 获取t-table ref
-const TTableBox = ref<HTMLElement | any>(null)
+// 获取mc-table ref
+const TableBox = ref<HTMLElement | any>(null)
 // 获取columnSet Ref
 const columnSetRef = ref<HTMLElement | any>(null)
 // 获取form ref
@@ -558,7 +558,7 @@ const defaultRadioSelect = (index: number | any) => {
 // 行拖拽
 const initSort = () => {
   if (!props.isRowSort) return
-  const el = TTableBox.value?.querySelector(".el-table__body-wrapper tbody")
+  const el = TableBox.value?.querySelector(".el-table__body-wrapper tbody")
   // console.log('3333', el)
   const handle = props.isRowSortIcon ? ".row_drag" : ".el-table__row"
   Sortable.create(el, {
@@ -1019,7 +1019,7 @@ defineExpose({
 })
 </script>
 <style lang="scss" scoped>
-.t-table {
+.mc_table {
   z-index: 0;
   background-color: var(--el-bg-color);
   :deep(.el-table__header-wrapper) {

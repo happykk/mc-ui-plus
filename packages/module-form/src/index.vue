@@ -1,5 +1,5 @@
 <template>
-  <div class="t_module_form" :style="{ marginBottom: footer !== null ? '60px' : '' }">
+  <div class="mc_module_form" :style="{ marginBottom: footer !== null ? '60px' : '' }">
     <div class="scroll_wrap">
       <!-- 头部 -->
       <el-page-header
@@ -65,7 +65,7 @@
   </div>
 </template>
 
-<script setup lang="ts" name="TModuleForm">
+<script setup lang="ts" name="McModuleForm">
 import { ref, useAttrs, useSlots, nextTick, computed } from "vue"
 import type { PropType } from "vue"
 import ModuleDetail from "./moduleDetail.vue"
@@ -265,7 +265,7 @@ defineExpose({
 })
 </script>
 <style lang="scss">
-.t_module_form {
+.mc_module_form {
   position: relative;
   display: flex;
   flex-grow: 1;

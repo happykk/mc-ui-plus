@@ -9,11 +9,11 @@
     :fixed="item.fixed"
   >
     <template v-for="(val, index) of item.children">
-      <t-table-column v-if="val.children" :key="index" :item="val">
+      <mc-table-column v-if="val.children" :key="index" :item="val">
         <template v-for="(index, name) in slots" v-slot:[name]="data">
           <slot :name="name" v-bind="data"></slot>
         </template>
-      </t-table-column>
+      </mc-table-column>
       <el-table-column
         v-else
         :key="val.prop"
@@ -61,7 +61,7 @@
   </el-table-column>
 </template>
 
-<script setup lang="tsx" name="TTableColumn">
+<script setup lang="tsx" name="McTableColumn">
 import SingleEditCell from "./singleEditCell.vue"
 import RenderCol from "./renderCol.vue"
 import { useSlots } from "vue"

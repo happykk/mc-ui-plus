@@ -68,10 +68,14 @@ onBeforeMount(() => {
     opacity: 0;
   }
 }
+
 .example-component {
   // min-height: 86px;
   // padding: 1.5rem;
-  background-color: var(--el-bg-color-page);
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 16px;
+  margin: 8px;
   &--spin {
     width: 36px;
     height: 36px;

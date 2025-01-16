@@ -1,5 +1,5 @@
 <template>
-  <el-descriptions class="t_detail" v-bind="$attrs" :column="descColumn">
+  <el-descriptions class="mc_detail" v-bind="$attrs" :column="descColumn">
     <el-descriptions-item
       v-for="(item, key) in descData"
       :key="key"
@@ -66,7 +66,7 @@
   </el-descriptions>
 </template>
 
-<script setup lang="ts" name="TDetail">
+<script setup lang="ts" name="McDetail">
 import RenderTooltip from "./renderTooltip.vue"
 import RenderLabel from "./renderLabel.vue"
 defineProps({
@@ -114,7 +114,7 @@ const constantEscape = (value: any, list: any[], key: string | number, label: st
 }
 </script>
 <style lang="scss" scoped>
-.t_detail {
+.mc_detail {
   :deep(.el-descriptions__body) {
     .el-descriptions__label:not(.is-bordered-label) {
       margin-right: 10px;

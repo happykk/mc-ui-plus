@@ -76,6 +76,9 @@
 .VPSidebar {
   z-index: 40 !important;
 }
+.VPDocAside .content {
+  padding-left: 10px !important;
+}
 .VPSidebar.open {
   z-index: 42 !important;
 }

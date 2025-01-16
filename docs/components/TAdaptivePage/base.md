@@ -2,13 +2,13 @@
 
 ### 一屏展示组件
 
-:::demo 继承 TQueryCondition 组件(查询条件组件)与 TTable 组件的所有属性、事件、插槽、方法
+:::demo 继承 MCQueryCondition 组件(查询条件组件)与 TTable 组件的所有属性、事件、插槽、方法
 TAdaptivePage/base
 :::
 
 ### 操作 TTable 取消复选功能
 
-:::demo 继承 TQueryCondition 组件(查询条件组件)与 TTable 组件的所有属性、事件、插槽、方法
+:::demo 继承 MCQueryCondition 组件(查询条件组件)与 TTable 组件的所有属性、事件、插槽、方法
 TAdaptivePage/selection
 :::
 

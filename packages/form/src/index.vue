@@ -1,7 +1,7 @@
 <template>
   <el-form
-    class="t-form"
-    ref="tform"
+    class="mc_form"
+    ref="mcform"
     :class="className"
     :model="formOpts.formData"
     :rules="formOpts.rules"
@@ -138,7 +138,7 @@
     </div>
   </el-form>
 </template>
-<script setup lang="ts" name="TForm">
+<script setup lang="ts" name="McForm">
 import RenderComp from "./renderComp.vue"
 import RenderBtn from "./renderBtn.vue"
 import { ElMessage } from "element-plus"
@@ -264,7 +264,7 @@ const compChildShowLabel = computed(() => {
 })
 const colSize = ref(props.widthSize)
 // 获取ref
-const tform: any = ref<HTMLElement | null>(null)
+const mcform: any = ref<HTMLElement | null>(null)
 // 获取实例方法
 const instance: any = getCurrentInstance()
 // 抛出事件
@@ -274,7 +274,7 @@ watch(
   () => {
     // state.form = initForm(opts, true)
     // 将form实例返回到父级
-    emits("update:modelValue", tform.value)
+    emits("update:modelValue", mcform.value)
   },
   { deep: true }
 )
@@ -291,8 +291,8 @@ watch(
   { deep: true }
 )
 onMounted(() => {
-  // console.log('tform.value.$.exposed--', tform.value.$)
-  const entries = Object.entries(tform.value.$.exposed)
+  // console.log('mcform.value.$.exposed--', mcform.value.$)
+  const entries = Object.entries(mcform.value.$.exposed)
   // console.log('111', entries)
   for (const [key, value] of entries) {
     instance.exposed[key] = value
@@ -313,7 +313,7 @@ onMounted(() => {
       }
     })
   // 将form实例返回到父级
-  emits("update:modelValue", tform.value)
+  emits("update:modelValue", mcform.value)
 })
 // label与输入框的布局方式
 const getChildWidth = (item: { widthSize: any }) => {
@@ -363,7 +363,7 @@ const handleEvent = (
 // 自定义校验
 const selfValidate = () => {
   return new Promise((resolve: any, reject: any) => {
-    tform.value.validate((valid: boolean) => {
+    mcform.value.validate((valid: boolean) => {
       if (valid) {
         resolve({
           valid,
@@ -394,7 +394,7 @@ const handleRef = (el: any,item: any, key: any) => {
 }
 const selfResetFields = () => {
   resetTselectTable()
-  tform.value.resetFields()
+  mcform.value.resetFields()
 }
 // 清除下拉表格组件
 const resetTselectTable = () => {
@@ -413,7 +413,7 @@ defineExpose({ ...instance.exposed, selfValidate, selfResetFields, resetTselectT
 </script>
 
 <style lang="scss">
-.t-form {
+.mc_form {
   display: flex;
   flex-wrap: wrap;
 

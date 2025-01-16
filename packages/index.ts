@@ -5,16 +5,16 @@ import type { Component, App } from "vue"
 // import locale from 'element-plus/lib/locale/lang/zh-cn' // 因element-plus默认是英文，我们指定一下默认中文
 import TLayoutPage from "./layout-page"
 import TLayoutPageItem from "./layout-page-item"
-import TQueryCondition from "./query-condition"
-import TTable from "./table"
-import TForm from "./form"
+import McQueryCondition from "./query-condition"
+import McTable from "./table"
+import McForm from "./form"
 import TSelect from "./select"
 import TSelectTable from "./select-table"
-import TDetail from "./detail"
+import McDetail from "./detail"
 import TButton from "./button"
 import TStepWizard from "./step-wizard"
 import TTimerBtn from "./timer-btn"
-import TModuleForm from "./module-form"
+import McModuleForm from "./module-form"
 import TAdaptivePage from "./adaptive-page"
 import TDatePicker from "./date-picker"
 import TRadio from "./radio"
@@ -30,16 +30,16 @@ const components: {
 } = {
   TLayoutPage,
   TLayoutPageItem,
-  TQueryCondition,
-  TTable,
-  TForm,
+  McQueryCondition,
+  McTable,
+  McForm,
   TSelect,
   TSelectTable,
-  TDetail,
+  McDetail,
   TButton,
   TStepWizard,
   TTimerBtn,
-  TModuleForm,
+  McModuleForm,
   TAdaptivePage,
   TDatePicker,
   TRadio,
@@ -80,16 +80,16 @@ if (typeof window !== "undefined" && window.Vue) {
 export {
   TLayoutPage,
   TLayoutPageItem,
-  TQueryCondition,
-  TTable,
-  TForm,
+  McQueryCondition,
+  McTable,
+  McForm,
   TSelect,
   TSelectTable,
-  TDetail,
+  McDetail,
   TButton,
   TStepWizard,
   TTimerBtn,
-  TModuleForm,
+  McModuleForm,
   TAdaptivePage,
   TDatePicker,
   TRadio,

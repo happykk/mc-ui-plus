@@ -1,11 +1,11 @@
 <template>
   <el-form
-    id="t_query_condition"
+    id="mc_query_condition"
     v-bind="$attrs"
     :label-width="labelWidth"
     :form="queryState.form"
     size="default"
-    class="t-query-condition"
+    class="mc-query-condition"
     :style="{
       'grid-template-areas': gridAreas,
       'grid-template-columns': `repeat(${colLength}, minmax(0px, ${100 / colLength}%))`
@@ -118,7 +118,7 @@
   </el-form>
 </template>
 
-<script setup lang="ts" name="TQueryCondition">
+<script setup lang="ts" name="McQueryCondition">
 import RenderComp from "./renderComp.vue"
 import MoreChoose from "./moreChoose.vue"
 import { computed, ref, watch, useSlots, onMounted, reactive } from "vue"
@@ -419,7 +419,7 @@ defineExpose({
 </script>
 
 <style lang="scss">
-.t-query-condition.el-form {
+.mc-query-condition.el-form {
   position: relative;
   display: grid;
   gap: 2px 8px;

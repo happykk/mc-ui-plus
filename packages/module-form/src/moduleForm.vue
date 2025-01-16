@@ -1,5 +1,5 @@
 <template>
-  <div class="t_form">
+  <div class="mc_form">
     <el-collapse v-model="defaultActiveKey">
       <el-collapse-item
         v-for="(formOpt, formIndex) in formOpts"
@@ -24,7 +24,7 @@
         <template v-if="formOpt.slotName">
           <slot :name="formOpt.slotName"></slot>
         </template>
-        <t-form
+        <mc-form
           :ref="
             (el:any) => {
               dashboardRef[formIndex] = el
@@ -38,7 +38,7 @@
           <template v-for="(index, name) in slots" v-slot:[name]="data">
             <slot :name="name" v-bind="data"></slot>
           </template>
-        </t-form>
+        </mc-form>
       </el-collapse-item>
     </el-collapse>
   </div>
@@ -84,7 +84,7 @@ const handleEvent = (val: any, type: any) => {
 }
 </script>
 <style lang="scss">
-.t_form {
+.mc_form {
   .el-collapse {
     border: none;
     .el-collapse-item {

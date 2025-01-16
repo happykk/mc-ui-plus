@@ -5,7 +5,7 @@
       <div class="title" v-if="columnBind.isShowTitle">{{ columnBind.title || "列设置" }}</div>
       <el-dropdown-menu>
         <el-dropdown-item :divided="columnBind.isShowTitle">
-          <Draggable
+          <!-- <Draggable
             class="t_table_column_setting_dropdown"
             v-model="state.columnSet"
             item-key="prop"
@@ -19,7 +19,7 @@
                 >{{ element.label }}</el-checkbox
               >
             </template>
-          </Draggable>
+          </Draggable> -->
         </el-dropdown-item>
       </el-dropdown-menu>
     </template>
@@ -27,7 +27,7 @@
 </template>
 
 <script setup lang="ts" name="columnSet">
-import Draggable from "vuedraggable"
+// import Draggable from "vuedraggable"
 import { watch, onMounted, reactive, computed, useAttrs } from "vue"
 const props = defineProps({
   columns: {
@@ -102,8 +102,7 @@ const state: any = reactive({
   columnSet: []
 })
 onMounted(() => {
-  state.columnSet = getColumnSetCache()
-  // console.log('onMounted', state.columnSet)
+  // state.columnSet = getColumnSetCache()
   emits("columnSetting", state.columnSet)
 })
 watch(

@@ -1,7 +1,7 @@
 import { defineConfig } from "vitepress"
 import { mdPlugin } from "./config/plugins"
 export default defineConfig({
-  title: "TuiPlus基础组件文档",
+  title: "MCuiPlus基础组件文档",
   description: "基于Element-plus基础组件封装使用",
   lang: "cn-ZH",
   base: "/mc-ui-plus/",
@@ -16,7 +16,7 @@ export default defineConfig({
       //   text: "安装指南",
       //   link: "/components/"
       // },
-      { text: "基础组件", link: "/components/TQueryCondition/base.md" },
+      { text: "基础组件", link: "/components/MCQueryCondition/base.md" },
       /*{
         text: "GitHub地址",
         link: "https://github.com/wocwin/t-ui-plus"
@@ -53,12 +53,12 @@ export default defineConfig({
             { text: "图标选择组件<el-tag type='danger'>v1.4.12</el-tag> ", link: "/components/TSelectIcon/base.md" },*/
             {
               text: "条件查询组件",
-              link: "/components/TQueryCondition/base.md"
+              link: "/components/MCQueryCondition/base.md"
             },
-            { text: "表单组件", link: "/components/TForm/base.md" },
-            { text: "模块表单组件", link: "/components/TModuleForm/base.md" },
-            { text: "table组件", link: "/components/TTable/base.md" },
-            { text: "详情组件", link: "/components/TDetail/base.md" }
+            { text: "表单组件", link: "/components/MCForm/base.md" },
+            { text: "模块表单组件", link: "/components/MCModuleForm/base.md" },
+            { text: "table组件", link: "/components/MCTable/base.md" },
+            { text: "详情组件", link: "/components/MCDetail/base.md" }
           ]
         },
         /*{

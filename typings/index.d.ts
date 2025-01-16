@@ -2,7 +2,7 @@
 declare interface AnyObject {
   [key: string]: any;
 }
-/* TForm */
+/* MCForm */
 declare namespace FormTypes {
   interface FormOpts {
     ref: any; // 表单实例
@@ -52,7 +52,7 @@ declare namespace FormTypes {
     render?: (...ags: any[]) => any; // render函数
   }
 }
-/* TQueryCondition */
+/* MCQueryCondition */
 declare namespace QueryTypes {
   interface Opts {
     [key: string]: {
@@ -71,7 +71,7 @@ declare namespace QueryTypes {
     };
   }
 }
-/* TTable */
+/* MCTable */
 declare namespace TableTypes {
   interface Table {
     border?: boolean; // 是否显示边框

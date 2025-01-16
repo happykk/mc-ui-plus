@@ -1,7 +1,7 @@
 
 import TLayoutPage from './lib/layout-page/src/index.vue'
 import TLayoutPageItem from './lib/layout-page-item/src/index.vue'
-import TQueryCondition from './lib/query-condition/src/index.vue'
+import MCQueryCondition from './lib/query-condition/src/index.vue'
 import TTable from './lib/table/src/index.vue'
 import TForm from './lib/form/src/index.vue'
 import TSelect from './lib/select/src/index.vue'
@@ -109,7 +109,7 @@ declare module '@vue/runtime-core' {
     ElSelectV2: typeof import('element-plus')['ElSelectV2']
     TLayoutPage: typeof TLayoutPage
     TLayoutPageItem: typeof TLayoutPageItem
-    TQueryCondition: typeof TQueryCondition
+    MCQueryCondition: typeof MCQueryCondition
     TTable: typeof TTable
     TForm: typeof TForm
     TSelect: typeof TSelect

@@ -1,5 +1,5 @@
 import Table from "./src/index.vue"
 import { withInstall } from "../withInstall"
 
-const TTable = withInstall(Table)
-export default TTable
+const McTable = withInstall(Table)
+export default McTable

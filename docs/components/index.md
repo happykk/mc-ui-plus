@@ -58,8 +58,8 @@ import '@wocwin/t-ui-plus/lib/style.css'
 | :-------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | TLayoutPage              | 布局页面                                                                                                                                                   |
 | TLayoutPageItem          | 布局页面子项                                                                                                                                               |
-| TAdaptivePage            | [一屏组件](https://wocwin.github.io/t-ui-plus/components/TAdaptivePage/base.html?_blank)（继承TTable 及 TQueryCondition 组件的所有属性、事件、插槽、方法） |
-| TQueryCondition          | [条件查询组件](https://wocwin.github.io/t-ui-plus/components/TQueryCondition/base.html?_blank)                                                             |
+| TAdaptivePage            | [一屏组件](https://wocwin.github.io/t-ui-plus/components/TAdaptivePage/base.html?_blank)（继承TTable 及 MCQueryCondition 组件的所有属性、事件、插槽、方法） |
+| MCQueryCondition          | [条件查询组件](https://wocwin.github.io/t-ui-plus/components/TQueryCondition/base.html?_blank)                                                             |
 | TTable                   | [表格组件](https://wocwin.github.io/t-ui-plus/components/TTable/base.html?_blank)                                                                          |
 | Virtualized TTable       | [虚拟列表](https://wocwin.github.io/t-ui-plus/components/TTableVirtual/base.html?_blank)                                                                   |
 | TForm                    | [表单组件](https://wocwin.github.io/t-ui-plus/components/TForm/base.html?_blank)                                                                           |

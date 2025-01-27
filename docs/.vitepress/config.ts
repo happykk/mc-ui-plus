@@ -55,9 +55,9 @@ export default defineConfig({
               text: "条件查询组件",
               link: "/components/MCQueryCondition/base.md"
             },
+            { text: "table组件", link: "/components/MCTable/base.md" },
             { text: "表单组件", link: "/components/MCForm/base.md" },
             { text: "模块表单组件", link: "/components/MCModuleForm/base.md" },
-            { text: "table组件", link: "/components/MCTable/base.md" },
             { text: "详情组件", link: "/components/MCDetail/base.md" }
           ]
         },

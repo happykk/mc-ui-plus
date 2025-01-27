@@ -3,8 +3,7 @@
     :opts="opts"
     @submit="conditionEnter"
     @handleEvent="handleEvent"
-    isExpansion
-    labelWidth="160px"
+    labelWidth="auto"
   >
     <template #disabledDate="{ param }">
       <el-date-picker

@@ -94,7 +94,7 @@
           </el-button>
           <slot name="querybar"></slot>
           <el-button
-            v-if="originCellLength > maxVisibleRows * colLength && showOpen"
+            v-if="originCellLength > maxVisibleRows * colLength && showOpen && !isShowFilter"
             @click="open = !open"
             link
           >
@@ -106,6 +106,11 @@
               <ArrowDown />
             </el-icon>
           </el-button>
+          <el-button
+            type="primary" plain
+            v-if="originCellLength > maxVisibleRows * colLength && isShowFilter"
+            @click="dialogVisible = true"
+          >筛选</el-button>
           <more-choose
             :isDropDownSelectMore="isDropDownSelectMore"
             :moreCheckList="moreCheckList"
@@ -115,7 +120,82 @@
         </template>
       </template>
     </el-form-item>
+    <div class="right-btn"><slot name="rightBtn"></slot></div>
   </el-form>
+  <el-drawer v-model="dialogVisible" title="筛选" direction="rtl" :before-close="handleClose" size="676px">
+    <el-form
+      v-bind="$attrs"
+      :form="queryState.form"
+      label-width="auto"
+      class="t-query-condition-dialog"
+    >
+      <el-form-item
+        v-for="(opt, i) in cOptsAll"
+        :key="i"
+        :label="opt.label"
+        :label-width="opt.labelWidth"
+        v-bind="$attrs"
+        :style="{ gridArea: i }"
+        :class="[opt.className, { render_label: opt.labelRender }]"
+      >
+        <!-- 自定义label -->
+        <template #label v-if="opt.labelRender">
+          <render-comp :form="queryState.form" :render="opt.labelRender" />
+        </template>
+        <!-- 自定义输入框插槽 -->
+        <template v-if="opt.slotName">
+          <slot :name="opt.slotName" :param="queryState.form" :scope="queryState.form"></slot>
+        </template>
+        <template v-if="opt.isSelfCom">
+          <component
+            :is="opt.comp"
+            :ref="opt.comp === 't-select-table' ? (el: any) => handleRef(el, i) : ''"
+            v-model="queryState.form[opt.dataIndex]"
+            :placeholder="opt.placeholder || getPlaceholder(opt)"
+            v-bind="
+              typeof opt.bind == 'function'
+                ? opt.bind(queryState.form)
+                : { clearable: true, filterable: true, ...$attrs, ...opt.bind }
+            "
+            :style="{ width: opt.width || '100%' }"
+            @change="handleEvent({ type: opt.event, val: queryState.form[opt.dataIndex] })"
+            v-on="cEvent(opt)"
+          />
+        </template>
+        <component
+          v-if="!opt.isSelfCom && !opt.slotName"
+          :is="opt.comp"
+          v-bind="
+            typeof opt.bind == 'function'
+              ? opt.bind(queryState.form)
+              : { clearable: true, filterable: true, ...$attrs, ...opt.bind }
+          "
+          :placeholder="opt.placeholder || getPlaceholder(opt)"
+          @change="handleEvent({ type: opt.event, val: queryState.form[opt.dataIndex] })"
+          v-on="cEvent(opt)"
+          v-model="queryState.form[opt.dataIndex]"
+        >
+          <component
+            v-if="opt.comp !== 'el-date-picker'"
+            :is="compChildName(opt)"
+            v-for="(value, key, index) in selectListType(opt)"
+            :key="index"
+            :disabled="value.disabled"
+            :label="compChildLabel(opt, value)"
+            :value="compChildValue(opt, value, key)"
+            >{{ compChildShowLabel(opt, value) }}</component
+          >
+        </component>
+      </el-form-item>
+    </el-form>
+    <template #footer>
+      <div style="flex: auto">
+        <el-button @click="dialogVisible=false">取消</el-button>
+        <el-button @click="resetHandle" v-bind="resetAttrs">重置</el-button>
+        <el-button type="primary" @click="comfirmHandle">查询</el-button>
+      </div>
+    </template>
+  </el-drawer>
 </template>
 
 <script setup lang="ts" name="McQueryCondition">
@@ -160,11 +240,11 @@ let colLength = ref(4)
 let showOpen = ref(false)
 
 let open = ref(false)
-
+let dialogVisible = ref(false)
 // 查询按钮配置
 const queryAttrs = computed(() => {
   return {
-    btnTxt: "查询",
+    btnTxt: "搜索",
     ...props.btnCheckBind
   }
 })
@@ -195,6 +275,17 @@ const cOpts = computed(() => {
       if (!open.value && renderSpan - 1 >= props.maxVisibleRows * colLength.value) {
         return acc
       }
+    }
+    opt.dataIndex = field
+    acc[field] = opt
+    return acc
+  }, {})
+})
+const cOptsAll = computed(() => {
+  let renderSpan = 0
+  return Object.keys(props.opts).reduce((acc: any, field: any) => {
+    let opt = {
+      ...props.opts[field]
     }
     opt.dataIndex = field
     acc[field] = opt

@@ -34,11 +34,11 @@ MCQueryCondition/labelRender
 MCQueryCondition/slotName
 :::
 
-### 联动使用(使用第三方组件事件)
+<!-- ### 联动使用(使用第三方组件事件)
 
 ::: demo
 MCQueryCondition/eventHandle
-:::
+::: -->
 
 <!-- ### 结合自己封装组件使用
 
@@ -70,12 +70,12 @@ MCQueryCondition/footerBtn
 MCQueryCondition/footer
 :::
 
-<!-- ### 每行展示多少项
+### 每行展示多少项
 
 ::: demo 开启`isShowWidthSize`；设置`widthSize`值`（默认 4）`；不开启`isShowWidthSize`，则根据`width > 1000 && width < 1280`展示 3 项，`width > 768 && width <= 1000`展示 2 项`width <= 768`展示1项；(width=window.innerWidth)
 
 MCQueryCondition/widthSize
-::: -->
+:::
 
 <!-- ### 动态增减查询条件项
 
@@ -189,7 +189,6 @@ MCQueryCondition/handleEventChange
 | handleEvent  | 筛选器数据发生变化时触发                          | event 标识, val：输入值,form:整个查询条件数据 |
 | submit       | 点击筛选器查询按钮时触发                          | form:整个查询条件数据                         |
 | reset        | 点击筛选器重置按钮时触发                          | -                                             |
-| getCheckList | 下拉动态添加条件（isDropDownSelectMore:true生效） | 返回选中的条件项                              |
 
 ### 4、Slots
 
